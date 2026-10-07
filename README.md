@@ -1,2 +1,81 @@
-# Brooks-SUN.github.io
-The website of MACC.
+# MACC Lab Website
+
+这个目录是研究团队的完整首页，包含七个中心动效版本。默认 `index.html` 使用 C-V3，记录在 `site.config.json` 中。
+
+甲方日常维护、导航与正文同步排序、方案切换、成员分组、招生联系及论文引用配置，请看 [甲方维护说明](./docs/甲方维护说明.md)。
+
+发布仓库：[Brooks-SUN/Brooks-SUN.github.io](https://github.com/Brooks-SUN/Brooks-SUN.github.io)，使用 `main` 分支。首页地址为 https://brooks-sun.github.io/ ，默认 C-V3；其他版本在该地址后添加对应 HTML 文件名即可访问。原开发仓库为 [Ex1st-hash/macc-lab](https://github.com/Ex1st-hash/macc-lab)。
+
+当前为设计预览，示例成员、招生、联系方式和引用数据不代表团队正式资料。发布采用手动工作流：在仓库 Settings > Pages 选择 GitHub Actions，然后在 Actions > Publish Website 中运行 Run workflow。后续提交代码后也需手动发布，避免未确认的修改直接上线。
+
+切换默认首页不需要原始反馈包：`npm run select:concept -- A-V2`。共享内容与功能不会丢失。
+
+## 查看七个版本
+
+运行 `start.bat` 后，使用它显示的地址打开以下页面。当前预览地址为 `http://127.0.0.1:4173/`。
+
+| 方案 | 页面 |
+| --- | --- |
+| A-V1 | [A-V1.html](./A-V1.html) |
+| A-V2 | [A-V2.html](./A-V2.html) |
+| A-V3 | [A-V3.html](./A-V3.html) |
+| B-V3 | [B-V3.html](./B-V3.html) |
+| C-V1 | [C-V1.html](./C-V1.html) |
+| C-V2 | [C-V2.html](./C-V2.html) |
+| C-V3 | [C-V3.html](./C-V3.html) |
+
+七个页面共享团队、新闻、成员、论文、项目、成果和页脚内容，未收到正式资料的部分使用示例。中心画布的绘制代码直接来自反馈包，包含对应方案的节点、连线、波纹、地球数据和光照。A、B 的环形光场与 C 系列各自的构图比例同步保留。C-V3 桌面端额外扩展右侧画布，避免外圈被方形边界裁切；导入器只适配画布尺寸和清屏范围，内部几何及动效不变。
+
+七个版本的页脚统一使用已确认的词海：青绿色文字、暖色日轮、远近连续的碎光与波浪。`scripts/footer-field.js` 使用原生 WebGL2 和本地生成的文字图集，不依赖外部字体、CDN 或 Three.js 下载，静态部署即可运行。接近页脚时初始化，离开视野或切换标签时暂停；简介、词海和联系方式共用深色背景，顶部渐变衔接正文。画质优先减少远景细节，保留近景文字密度和最高 2 倍渲染；持续超载时才降至最高 1.5 倍，并受总像素预算约束，保留原始日光反射，保留减少动态效果支持和无 WebGL2 的静态词海。`npm run test:footer` 检查正式页面及发布构建中的动效、尺寸、回退和生命周期。
+
+桌面上的 A-V1、A-V2、A-V3、B-V3 按导航栏下方的可视区域居中，并根据窗口高度为完整环形光场预留空间。C 系列保留原方案的非对称构图。正文滚动不改变动效位置；接近页脚时继续使用 `scripts/app.js` 原有的渐隐和轻微上移公式，返回上方时恢复。700px 及以下保留概念稿的移动布局，将动效完整放在介绍与新闻之间；原首页在这个尺寸原本不显示中心碑形图形。
+
+## 文件结构
+
+- `index.html`、`A-V1.html` 等：生成的完整页面
+- `templates/homepage.html`: 共享页面结构模板
+- `styles/`: 样式文件
+- `content/publications.js`: 手动维护的完整论文总表，页面按日期显示最新 15 条
+- `content/site.js`: 团队、新闻、成员、项目、应用系统、获奖及联系资料
+- `scripts/content.js`: 读取内容文件的程序入口，日常不编辑
+- `scripts/publications.js`: 论文日期校验与最新 15 条选择逻辑
+- `scripts/app.js`: 数据渲染与导航交互
+- `scripts/navigation.js`: 导航配置与正文同步排序
+- `scripts/citations.js`: GB/T 7714、BibTeX 引用弹窗与复制
+- `scripts/center-concepts.js`: 动效层位置与响应式布局对接
+- `scripts/concepts/`: 七份导入动画、共用球体光照与来源校验值
+- `styles/concepts/`: 从原方案提取的视觉样式
+- `styles/center-concepts.css`: 完整页面的布局适配
+- `styles/client-refinements.css`: 已确认的首页文字与论文区域调整
+- `tools/import-concepts.mjs`: 使用 HTML 解析器导入反馈包并生成页面
+
+## 后续怎么改内容
+
+优先只改 `content/` 下的数据文件，详细填写模板见 [甲方维护说明](./docs/甲方维护说明.md)：
+
+- 团队名称、英文名、简介、招生及底部联系信息
+- 首页新闻
+- 成员分组、统一底色和透明 PNG
+- 论文总表、项目、应用系统、获奖内容
+
+论文填写在 `content/publications.js`，其余栏目填写在 `content/site.js`。论文总表保留全部记录，`date` 推荐填写 `YYYY-MM-DD`，也支持 `YYYY-MM` 或 `YYYY`；页面自动按日期降序显示最新 15 条，不足则全部显示，同日按文件顺序。只填年/月时按该年/月第一天排序；不接入外部学术平台，不自动删除旧论文。
+
+更新后运行 `npm run check:content` 检查并查看排序结果，运行 `npm run build:hero` 同步首页静态文字，然后刷新本地预览。发布构建会校验完整论文清单，错误数据会阻止发布。`npm run test:publications` 可运行论文专项测试，需要本地预览服务及 Playwright 浏览器。
+
+`content/` 会公开部署，未展示的旧论文也可从内容文件读取；不要放入内部资料或密钥。提交、推送后仍需手动运行 Publish Website，才会更新线上内容。
+
+如果只是更新内容，一般不需要改 `index.html` 或 `styles/`。
+
+## 更新与验证方案
+
+安装开发依赖后，传入包含七个方案目录的反馈包路径：
+
+```powershell
+npm install
+npm run build:concepts -- 'D:\七方案\A-B-C-七方案反馈包(2)'
+npm run test:concepts -- 'D:\七方案\A-B-C-七方案反馈包(2)'
+```
+
+验证需要本地预览服务运行；可以用环境变量 `PREVIEW_URL` 指定其他端口。Playwright 优先使用已安装的浏览器，也可用 `PLAYWRIGHT_CHROMIUM_EXECUTABLE` 指定 Chromium 路径，或运行 `npx playwright install chromium` 安装。
+
+验证包括六种窗口尺寸下的原方案画布像素与节点几何对照、可视区域居中、完整光场边界、正文固定位置、页脚渐隐、返回顶部、动画暂停和恢复、新闻区域滚动及完整页面内容。调整显示尺寸的方案会以相同尺寸的原始绘制器作对照。C-V3 对比原画布内部像素，避开原裁切边缘的抗锯齿变化，并单独检查右侧扩展区域的圆环像素和容器边界。截图和 JSON 结果写入 `artifacts/concepts/`。测试会屏蔽原有的外部成员照片请求，使动效对照可离线重复。
