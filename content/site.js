@@ -12,15 +12,15 @@ export const siteDetails = {
     summary:
       "We investigate how multiple agents perceive, reason, and coordinate to build reliable multi-agent systems across dynamic, distributed computing environments.",
     recruitment: {
-      text: "欢迎对多智能体与协同智能感兴趣的同学联系团队。",
-      href: "#contact"
+      text: "本团队专注多智能体认知与协同前沿研究，诚邀志同道合的同学一起探索智能未来！",
+      href: "sunchuan@cqnu.edu.cn"
     }
   },
   contact: {
     isExample: true,
-    email: "macc@example.edu",
-    phone: "023-0000 0000",
-    office: "重庆师范大学 · 示例楼宇 000 室",
+    email: "sunchuan@cqnu.edu.cn",
+    // phone: "+86-15023479210",
+    office: "重庆师范大学 · 大学城校区 致用楼 505B 办公室",
     filing: { text: "", href: "" }
   },
   // Reorder these objects to reorder both navigation and body sections. Home stays first.
@@ -102,29 +102,39 @@ export const siteDetails = {
   membersNotice: "示例成员名单 · 人像为生成样张，非真实团队成员。",
   members: [
     {
-      name: "Lin Chen", initials: "LC", group: "teachers",
-      role: "Professor", image: "./assets/portraits/sample-researcher.png",
-      bio: "Research interests include multi-agent learning and collaborative intelligence."
+      name: "孙川", initials: "SC", group: "teachers",
+      role: "讲师", image: "./assets/portraits/sample-researcher.png",
+      bio: "研究方向：多智能体系统、边缘智能."
     },
     {
-      name: "Jia Xu", initials: "JX", group: "teachers",
-      role: "Professor", image: "./assets/portraits/sample-researcher.png",
-      bio: "Research interests include multi-agent learning and collaborative intelligence."
+      name: "王超", initials: "WC", group: "teachers",
+      role: "副教授", image: "./assets/portraits/sample-researcher.png",
+      bio: "研究方向：自然语言处理、大语言模型."
     },
     {
-      name: "Wei Zhou", initials: "WZ", group: "teachers",
-      role: "Professor", image: "./assets/portraits/sample-researcher.png",
-      bio: "Research interests include multi-agent learning and collaborative intelligence."
+      name: "肖颗", initials: "XK", group: "teachers",
+      role: "讲师", image: "./assets/portraits/sample-researcher.png",
+      bio: "研究方向：车联网、移动计算."
     },
     {
-      name: "Ning Wang", initials: "NW", group: "teachers",
-      role: "Professor", image: "./assets/portraits/sample-researcher.png",
-      bio: "Research interests include multi-agent learning and collaborative intelligence."
+      name: "孙松", initials: "SS", group: "teachers",
+      role: "讲师", image: "./assets/portraits/sample-researcher.png",
+      bio: "研究方向：车联网、移动计算."
     },
     {
-      name: "Ming Li", initials: "ML", group: "collaborators",
-      role: "Research Partner", image: "./assets/portraits/sample-researcher.png",
-      bio: "Research interests include multi-agent learning and collaborative intelligence."
+      name: "郭桃林", initials: "GTL", group: "collaborators",
+      role: "讲师", image: "./assets/portraits/sample-researcher.png",
+      bio: "研究方向：隐私保护、差分隐私."
+    },
+    {
+      name: "彭顺顺", initials: "PSS", group: "collaborators",
+      role: "讲师", image: "./assets/portraits/sample-researcher.png",
+      bio: "研究方向：隐私保护、差分隐私."
+    },
+    {
+      name: "高丽萍", initials: "GLP", group: "collaborators",
+      role: "讲师", image: "./assets/portraits/sample-researcher.png",
+      bio: "研究方向：路线规划、城市交通大数据分析."
     },
     {
       name: "Yue Zhao", initials: "YZ", group: "collaborators",
