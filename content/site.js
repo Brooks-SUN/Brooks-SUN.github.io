@@ -6,13 +6,13 @@ export const siteDetails = {
     // Chinese name and research phrases remain editable demonstration copy.
     titleLines: ["多智能体认知", "与协同团队"],
     englishName: "Multi-Agent Cognition and Collaboration Team",
-    researchDirections: ["多智能体系统", "认知与推理", "协同智能"],
+    researchDirections: ["多智能体系统", "大模型压缩与微调", "边缘智能"],
     acronym: "MACC",
     markLabel: "Multi-Agent Cognition and Collaboration",
     summary:
-      "We investigate how multiple agents perceive, reason, and coordinate to build reliable intelligent systems across dynamic, distributed environments.",
+      "We investigate how multiple agents perceive, reason, and coordinate to build reliable multi-agent systems across dynamic, distributed computing environments.",
     recruitment: {
-      text: "招生示例：欢迎对多智能体与协同智能感兴趣的同学联系团队。",
+      text: "欢迎对多智能体与协同智能感兴趣的同学联系团队。",
       href: "#contact"
     }
   },
